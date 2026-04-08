@@ -78,7 +78,7 @@ CRQCs also pose a potential threat to Bitcoin mining, as Grover’s algorithm th
 
 Since 2023, the share of posts and replies on the Bitcoin Development Mailing List that mention quantum has increased dramatically. Developers and researchers are engaging the threat directly and now advancing a set of complementary mitigations that address different stages and layers of quantum risk to Bitcoin, collectively outlining a path toward post-quantum Bitcoin. Several proposals are in draft, but much of the work is still in research and discussion, with no final standards or activation decisions as of yet.
 
-![][image2]
+![](assets/image2)
 
 \*See Appendix for methodology.
 
@@ -86,7 +86,7 @@ Since 2023, the share of posts and replies on the Bitcoin Development Mailing Li
 
 Address reuse accounts for over two-thirds of long-range exposure. Much of it comes from a relatively small number of large custodians and institutions, often for operational simplicity. Because these holdings are under active control, they can be made safer against long-range theft risk without any protocol change, by moving funds to new addresses and rotating keys.
 
-![][image3]
+![](assets/image3)
 
 Source: Analysis of Quantum Vulnerable Bitcoin (June 2025\)[^12] 
 
@@ -191,7 +191,7 @@ Even if CRQCs, or credible quantum-enabled theft, surface sooner than expected, 
 
 Chaincode Labs released a CRQC Response Playbook[^32], developed through discussions with Bitcoin Core developers, that lays out a concrete plan and timeline for rapid response. 
 
-![][image4]
+![](assets/image4)
 
 Source: Bitcoin's CRQC Response Playbook[^33] 
 
