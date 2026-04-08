@@ -1,4 +1,5 @@
-# Bitcoin’s Quantum Readiness: Exposure, Mitigations, and Upgrade Paths 
+# Bitcoin’s Quantum Readiness
+Exposure, Mitigations, and Upgrade Paths 
 
 ## **Key Takeaways**
 
