@@ -66,7 +66,7 @@ Long-range theft would target coins whose public keys have been visible on-chain
 
 A recent analysis (June 2025\) suggests that roughly 6.5 million BTC, about one-third of the total supply, would be vulnerable to long-range theft if a CRQC existed today.
 
-![][image1](assets/image1)
+![](assets/image1)
 
 Source: Analysis of Quantum Vulnerable Bitcoin[^10] 
 
