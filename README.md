@@ -146,9 +146,12 @@ Assuming a post-quantum destination exists and migration is meaningfully underwa
 
 3. #### **Freeze coins in legacy addresses, with a recovery path (“soft-freeze**”)
 
-   Recent research by BitMEX[^19] outlines one path by which all legacy spends are turned off, while owners can recover coins by proving they control the original wallet’s seed phrase.   
-   Most coins with exposed public keys can be reclaimed using zero-knowledge seed phrase recovery, demonstrating that they know the wallet’s seed phrase without revealing it. A majority of coins are held in wallets based on seed phrases, and seed phrases are quantum-resistant: a CRQC could not derive an ordered 12-24 word seed phrase from an exposed public key. A recent proof-of-concept[^36] demonstrated the viability of this approach, with sub-one-minute runtime on consumer hardware.  
-   Coins without exposed public keys could *also* be recovered using a variant of the commit/reveal scheme covered in *Migration Safeguards*.   
+   Recent research by BitMEX[^19] outlines one path by which all legacy spends are turned off, while owners can recover coins by proving they control the original wallet’s seed phrase.
+   
+   Most coins with exposed public keys can be reclaimed using zero-knowledge seed phrase recovery, demonstrating that they know the wallet’s seed phrase without revealing it. A majority of coins are held in wallets based on seed phrases, and seed phrases are quantum-resistant: a CRQC could not derive an ordered 12-24 word seed phrase from an exposed public key. A recent proof-of-concept[^36] demonstrated the viability of this approach, with sub-one-minute runtime on consumer hardware.
+     
+   Coins without exposed public keys could *also* be recovered using a variant of the commit/reveal scheme covered in *Migration Safeguards*.
+   
    The remaining P2PK coins (which have exposed public keys that are not derived from seed phrases) are presumed lost, but can be recovered if an owner posted a “pre-QDay” hash commitment (an on-chain commitment before quantum risk was live). 
 
 To frame the stakes from a market perspective, liquidating the core assumed-lost legacy supply, 1.72 million P2PK coins spread across almost 36,000 addresses, is roughly equivalent to about one year of “peak bull-market” long-term holder selling per Checkonchain[^20]. 
