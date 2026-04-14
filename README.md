@@ -169,22 +169,26 @@ So, at a high level, an orderly transition would move through three phases: rese
       
    In conjunction with this, the community would also need to decide which output type should carry that spend path: whether to extend existing P2TR outputs, despite their public-key exposure and the likelihood that key-path spends would later need to be disabled or frozen, or introduce a new output type such as P2MR that removes the public-key exposure but sacrifices some of P2TR's efficiency, privacy, and simplicity while adding yet another spend type that could make users easier to fingerprint.
    
-3) **Merge BIP(s) via soft fork**   
+2) **Merge BIP(s) via soft fork**   
    If the path forward involves a new output type rather than extending P2TR, it will likely be bundled into a larger soft-fork proposal. While consensus on the signature scheme and output type does not need to occur together, bundling them makes the upgrade easier to review, implement, and adopt. There is precedent for this: the Taproot upgrade, activated in November 2021, bundled three separate BIPs into a single soft fork: BIP 340 (Schnorr signatures), BIP 341 (Taproot, the new P2TR output type), and BIP 342 (Tapscript, updated script validation rules for the new output).
    
    A post-quantum soft fork may follow a similar pattern, pairing a new signature verification opcode (e.g., OP\_SHRINCSVERIFY) with a new output type like BIP-360's P2MR.
    
-   Given that current state-of-the-art post-quantum signature schemes produce significantly larger signatures, a block size increase may be proposed to maintain practical transaction throughput.  
-5) **Enable it as an optional spend path**   
+   Given that current state-of-the-art post-quantum signature schemes produce significantly larger signatures, a block size increase may be proposed to maintain practical transaction throughput.
+   
+3) **Enable it as an optional spend path**   
    Once bitcoin supports the new post-quantum signature scheme, wallets could begin creating outputs with two ways to spend:  
   * a normal path that uses today’s quantum-vulnerable signatures, and   
   * a post-quantum path that spends using the new signature’s corresponding opcode (e.g., OP\_SHRINCSVERIFY for SHRINCS) but stays hidden unless used.
     
   This preserves normal spending efficiency while keeping a post-quantum option ready if a CRQC appears imminent.  
+  
 4) **Migration and adoption**  
    At that point, users could begin moving funds into the output(s) that support the new post-quantum spend path. On-chain capacity will almost certainly not be the limiting factor: based on an estimate using recent UTXO-set data[^26], if \~25% of block space were dedicated to migration, \~90% of bitcoin’s value could move in \~4.4 days (\~956k UTXOs), and \~98% in \~3.5 weeks (\~5.3M UTXOs). The more likely constraint would be behavioral, since bitcoin wallet upgrades tend to be slow unless there is a clear forcing function.   
+
 5) **Keep improving post-quantum signatures**   
    Meanwhile, researchers and developers would keep working on lighter, more performant post-quantum signature schemes while tracking improvements within the broader cryptography community. If/when CRQCs are imminent, another, more mature post-quantum signature scheme could also be deployed.  
+
 6) **Legacy outputs decision**  
    After a safe destination exists and migration is underway, the ecosystem still must decide how to handle unmigrated, quantum-vulnerable coins.  
    
