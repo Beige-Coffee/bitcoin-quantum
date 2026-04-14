@@ -181,7 +181,7 @@ So, at a high level, an orderly transition would move through three phases: rese
   * a normal path that uses today’s quantum-vulnerable signatures, and   
   * a post-quantum path that spends using the new signature’s corresponding opcode (e.g., OP\_SHRINCSVERIFY for SHRINCS) but stays hidden unless used.
     
-  This preserves normal spending efficiency while keeping a post-quantum option ready if a CRQC appears imminent.  
+   This preserves normal spending efficiency while keeping a post-quantum option ready if a CRQC appears imminent.  
   
 4) **Migration and adoption**  
    At that point, users could begin moving funds into the output(s) that support the new post-quantum spend path. On-chain capacity will almost certainly not be the limiting factor: based on an estimate using recent UTXO-set data[^26], if \~25% of block space were dedicated to migration, \~90% of bitcoin’s value could move in \~4.4 days (\~956k UTXOs), and \~98% in \~3.5 weeks (\~5.3M UTXOs). The more likely constraint would be behavioral, since bitcoin wallet upgrades tend to be slow unless there is a clear forcing function.   
