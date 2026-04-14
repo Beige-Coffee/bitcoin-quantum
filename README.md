@@ -165,13 +165,17 @@ So, at a high level, an orderly transition would move through three phases: rese
 ### How an orderly transition will likely work
 
 1) **Choose a post-quantum signature and output type**  
-   The likely first step will be for the community to reach consensus and add a safe, conservative, bitcoin-tailored signature scheme. Today, the most likely options are the SPHINCS+ variants SHRINCS[^24] and SHRIMPS[^25] in combination.    
-   In conjunction with this, the community would also need to decide which output type should carry that spend path: whether to extend existing P2TR outputs, despite their public-key exposure and the likelihood that key-path spends would later need to be disabled or frozen, or introduce a new output type such as P2MR that removes the public-key exposure but sacrifices some of P2TR's efficiency, privacy, and simplicity while adding yet another spend type that could make users easier to fingerprint.    
-2) **Merge BIP(s) via soft fork**   
-   If the path forward involves a new output type rather than extending P2TR, it will likely be bundled into a larger soft-fork proposal. While consensus on the signature scheme and output type does not need to occur together, bundling them makes the upgrade easier to review, implement, and adopt. There is precedent for this: the Taproot upgrade, activated in November 2021, bundled three separate BIPs into a single soft fork: BIP 340 (Schnorr signatures), BIP 341 (Taproot, the new P2TR output type), and BIP 342 (Tapscript, updated script validation rules for the new output).   
-   A post-quantum soft fork may follow a similar pattern, pairing a new signature verification opcode (e.g., OP\_SHRINCSVERIFY) with a new output type like BIP-360's P2MR.   
+   The likely first step will be for the community to reach consensus and add a safe, conservative, bitcoin-tailored signature scheme. Today, the most likely options are the SPHINCS+ variants SHRINCS[^24] and SHRIMPS[^25] in combination.
+      
+   In conjunction with this, the community would also need to decide which output type should carry that spend path: whether to extend existing P2TR outputs, despite their public-key exposure and the likelihood that key-path spends would later need to be disabled or frozen, or introduce a new output type such as P2MR that removes the public-key exposure but sacrifices some of P2TR's efficiency, privacy, and simplicity while adding yet another spend type that could make users easier to fingerprint.
+   
+3) **Merge BIP(s) via soft fork**   
+   If the path forward involves a new output type rather than extending P2TR, it will likely be bundled into a larger soft-fork proposal. While consensus on the signature scheme and output type does not need to occur together, bundling them makes the upgrade easier to review, implement, and adopt. There is precedent for this: the Taproot upgrade, activated in November 2021, bundled three separate BIPs into a single soft fork: BIP 340 (Schnorr signatures), BIP 341 (Taproot, the new P2TR output type), and BIP 342 (Tapscript, updated script validation rules for the new output).
+   
+   A post-quantum soft fork may follow a similar pattern, pairing a new signature verification opcode (e.g., OP\_SHRINCSVERIFY) with a new output type like BIP-360's P2MR.
+   
    Given that current state-of-the-art post-quantum signature schemes produce significantly larger signatures, a block size increase may be proposed to maintain practical transaction throughput.  
-3) **Enable it as an optional spend path**   
+5) **Enable it as an optional spend path**   
    Once bitcoin supports the new post-quantum signature scheme, wallets could begin creating outputs with two ways to spend:  
   * a normal path that uses today’s quantum-vulnerable signatures, and   
   * a post-quantum path that spends using the new signature’s corresponding opcode (e.g., OP\_SHRINCSVERIFY for SHRINCS) but stays hidden unless used.  
