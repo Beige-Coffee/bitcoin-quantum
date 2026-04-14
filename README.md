@@ -178,7 +178,8 @@ So, at a high level, an orderly transition would move through three phases: rese
 5) **Enable it as an optional spend path**   
    Once bitcoin supports the new post-quantum signature scheme, wallets could begin creating outputs with two ways to spend:  
   * a normal path that uses today’s quantum-vulnerable signatures, and   
-  * a post-quantum path that spends using the new signature’s corresponding opcode (e.g., OP\_SHRINCSVERIFY for SHRINCS) but stays hidden unless used.  
+  * a post-quantum path that spends using the new signature’s corresponding opcode (e.g., OP\_SHRINCSVERIFY for SHRINCS) but stays hidden unless used.
+    
   This preserves normal spending efficiency while keeping a post-quantum option ready if a CRQC appears imminent.  
 4) **Migration and adoption**  
    At that point, users could begin moving funds into the output(s) that support the new post-quantum spend path. On-chain capacity will almost certainly not be the limiting factor: based on an estimate using recent UTXO-set data[^26], if \~25% of block space were dedicated to migration, \~90% of bitcoin’s value could move in \~4.4 days (\~956k UTXOs), and \~98% in \~3.5 weeks (\~5.3M UTXOs). The more likely constraint would be behavioral, since bitcoin wallet upgrades tend to be slow unless there is a clear forcing function.   
@@ -186,6 +187,7 @@ So, at a high level, an orderly transition would move through three phases: rese
    Meanwhile, researchers and developers would keep working on lighter, more performant post-quantum signature schemes while tracking improvements within the broader cryptography community. If/when CRQCs are imminent, another, more mature post-quantum signature scheme could also be deployed.  
 6) **Legacy outputs decision**  
    After a safe destination exists and migration is underway, the ecosystem still must decide how to handle unmigrated, quantum-vulnerable coins.  
+   
    Because this choice might divide the community, it is the clearest plausible fault line for a contentious fork. If there is a split, the winner (which chain is “bitcoin”) will likely be chosen by the market. Once one version consistently trades at a premium, liquidity and users tend to follow, and the other side fades quickly, similar to how the market resolved the 2017 Bitcoin Cash split.
 
 ## **Rapid Response Playbook** 
