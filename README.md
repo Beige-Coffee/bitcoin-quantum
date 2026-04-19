@@ -154,6 +154,10 @@ Assuming a post-quantum destination exists and migration is meaningfully underwa
    
    The remaining P2PK coins (which have exposed public keys that are not derived from seed phrases) are presumed lost, but can be recovered if an owner posted a "pre-QDay" hash commitment (an on-chain commitment before quantum risk was live). 
 
+   Rather than scheduling a hard freeze on a fixed timeline, a suggestion by BitMEX[^bitmex-quantum-canary] is to trigger the freeze upon the spending of funds sent to a dedicated canary address (spendable only with a quantum computer).
+
+   This approach lowers the risk of an unnecessary freeze, though it relies on the quantum-capable entity choosing the bounty (to which anyone could contribute) over covert theft.
+
 To frame the stakes from a market perspective, liquidating the core assumed-lost legacy supply, 1.72 million P2PK coins spread across almost 36,000 addresses, is roughly equivalent to about one year of "peak bull-market" long-term holder selling per Checkonchain[^checkonchain]. 
 
 ## **Orderly Transition Scenario**
@@ -324,6 +328,7 @@ The \~956,830 UTXO estimate for \~90% of BTC value should also be understood as 
 [^mara-slipstream]: https://slipstream.mara.com/
 [^bitmex-quantum-freeze]: https://www.bitmex.com/blog/Mitigating-The-Impact-Of-The-Quantum-Freeze
 [^checkonchain]: https://newsletter.checkonchain.com/p/one-day-satoshis-coins-will-move
+[^bitmex-quantum-canary]: https://www.bitmex.com/blog/Avoiding-An-Unnecessary-Quantum-Freeze 
 [^bitcoin-cap]: https://bitcoin-cap.github.io/bcap/
 [^chaincode-labs]: https://chaincode.com/
 [^blockstream-research]: https://research.blockstream.com/
